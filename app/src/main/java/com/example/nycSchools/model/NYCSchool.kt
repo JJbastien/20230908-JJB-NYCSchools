@@ -2,6 +2,8 @@ package com.example.nycSchools.model
 
 import com.google.gson.annotations.SerializedName
 
+//data keys retrieve from school list api
+
 data class NYCSchool(
     val dbn: String,
     @SerializedName("overview_paragraph")

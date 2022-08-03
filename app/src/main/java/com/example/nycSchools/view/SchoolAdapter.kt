@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nycSchools.databinding.SchoolListItemBinding
 import com.example.nycSchools.model.NYCSchool
 
+//Adapter set up for Recycler view
 class SchoolAdapter(
     private val schools: MutableList<NYCSchool> = mutableListOf(),
     private val setSchool: (NYCSchool) -> Unit
@@ -23,7 +24,8 @@ class SchoolAdapter(
                 }
             }
     }
-
+    //function to get new data from the api
+    //We clear the data and then we all the new data
     fun setSchoolsList(newList: List<NYCSchool>) {
         schools.clear()
         schools.addAll(newList)

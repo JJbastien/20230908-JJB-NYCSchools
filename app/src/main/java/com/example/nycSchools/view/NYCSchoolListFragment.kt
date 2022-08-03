@@ -9,6 +9,7 @@ import com.example.nycSchools.databinding.FragmentNycschoolListBinding
 import com.example.nycSchools.model.NYCSchool
 import com.example.nycSchools.utils.UIState
 
+// Fragment to display the SAT scores
 class NYCSchoolListFragment : ViewModelFragment() {
 
     private var _binding: FragmentNycschoolListBinding? = null
@@ -26,7 +27,8 @@ class NYCSchoolListFragment : ViewModelFragment() {
         configureObserver()
         return binding.root
     }
-
+    //  fragment for school list using liveData to observe life cycle and use State to
+    // update UI
     private fun configureObserver() {
         viewModel.schoolLiveData.observe(viewLifecycleOwner) { state ->
             when (state) {
@@ -49,7 +51,7 @@ class NYCSchoolListFragment : ViewModelFragment() {
             }
         }
     }
-
+    //function to set data received to fragment attached to the activity containing the fragment in question
     private fun setSchool(nycSchool: NYCSchool) {
         viewModel.setSchool(nycSchool)
         parentFragmentManager.beginTransaction()

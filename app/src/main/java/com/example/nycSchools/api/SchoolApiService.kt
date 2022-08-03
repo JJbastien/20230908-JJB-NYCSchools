@@ -8,6 +8,8 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+//interface that provides Https functions. We only need the GET function in this case
+
 interface SchoolApiService {
     @GET(SCHOOL_ENDPOINT)
     suspend fun fetchNYCSchools(): Response<List<NYCSchool>>

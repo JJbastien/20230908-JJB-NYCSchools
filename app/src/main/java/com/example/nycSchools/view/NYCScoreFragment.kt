@@ -24,7 +24,8 @@ class NYCScoreFragment: ViewModelFragment() {
         configureObserver()
         return binding.root
     }
-
+    //  fragment for school SAT using  liveData to observe life cycle and use State to
+    // update UI
     private fun configureObserver() {
         viewModel.scoreLiveData.observe(viewLifecycleOwner) { state ->
             val school = viewModel.currentSchool

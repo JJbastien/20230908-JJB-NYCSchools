@@ -2,6 +2,7 @@ package com.example.nycSchools.model
 
 import com.google.gson.annotations.SerializedName
 
+//data keys retrieve from sat score endpoint from api
 data class NYCScore(
     val dbn: String,
     @SerializedName("school_name")

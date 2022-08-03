@@ -1,4 +1,4 @@
-package com.example.nycSchools.hilt
+package com.example.nycSchools.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

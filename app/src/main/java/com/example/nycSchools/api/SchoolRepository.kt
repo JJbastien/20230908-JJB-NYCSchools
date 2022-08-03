@@ -5,10 +5,15 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
+
+//Repository layer interface
+
 interface SchoolRepository {
     suspend fun fetchNYCSchools(): Flow<UIState>
     suspend fun fetchNYCScore(dbn: String): Flow<UIState>
 }
+
+//Repository layer implementation with dependency injection from apiService
 
 class SchoolRepositoryImpl @Inject constructor(
     private val service: SchoolApiService

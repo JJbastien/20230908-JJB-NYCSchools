@@ -12,6 +12,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+//viewModel setup to serve as a bridge between data layer and views
+//we use dependency injection to inject the repository
 @HiltViewModel
 class SchoolViewModel @Inject constructor(
     private val repository: SchoolRepository
@@ -29,6 +31,7 @@ class SchoolViewModel @Inject constructor(
         fetchNYCSchools()
     }
 
+    //Coroutine set up to make call to api to get schools without blocking the main thread
     private fun fetchNYCSchools() {
         CoroutineScope(Dispatchers.IO).launch {
             repository.fetchNYCSchools().collect { state ->
@@ -36,7 +39,7 @@ class SchoolViewModel @Inject constructor(
             }
         }
     }
-
+    //Coroutine set up to make call to api to get SAT score without blocking the main thread
     fun fetchNYCScore(dbn: String) {
         CoroutineScope(Dispatchers.IO).launch {
             repository.fetchNYCScore(dbn).collect { state ->

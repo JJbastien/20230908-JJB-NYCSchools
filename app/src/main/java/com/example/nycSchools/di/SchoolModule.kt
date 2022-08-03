@@ -1,4 +1,4 @@
-package com.example.nycSchools.hilt
+package com.example.nycSchools.di
 
 import com.example.nycSchools.api.SchoolApiService
 import com.example.nycSchools.api.SchoolRepository
@@ -17,6 +17,9 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
+
+// dependency injection module set up
+
 class SchoolModule {
 
     @Singleton
