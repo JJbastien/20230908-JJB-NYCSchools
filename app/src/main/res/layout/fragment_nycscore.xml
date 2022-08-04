@@ -5,118 +5,127 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="#E2ECEB"
+        app:cardCornerRadius="15dp">
 
-        <TextView
-            android:id="@+id/tv_score_school_name"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin"
-            android:textAlignment="center"
-            android:textSize="@dimen/large_text_size"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="School Name" />
-
-        <LinearLayout
-            android:id="@+id/ll_scores"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="invisible"
-            android:layout_margin="@dimen/default_margin"
-            app:layout_constraintEnd_toEndOf="@id/tv_score_school_name"
-            app:layout_constraintStart_toStartOf="@id/tv_score_school_name"
-            app:layout_constraintTop_toBottomOf="@id/tv_score_school_name">
+            android:layout_margin="4dp">
 
             <TextView
-                android:id="@+id/tv_score_takers"
+                android:id="@+id/sat_score_school_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/medium_text_size"
+                android:layout_margin="@dimen/default_margin"
+                android:textAlignment="center"
+                android:textSize="@dimen/large_text_size"
                 android:textStyle="bold"
-                tools:text="Takers of SAT" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="School Name" />
+
+            <LinearLayout
+                android:id="@+id/sat_scores"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin"
+                android:orientation="vertical"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="@id/sat_score_school_name"
+                app:layout_constraintStart_toStartOf="@id/sat_score_school_name"
+                app:layout_constraintTop_toBottomOf="@id/sat_score_school_name">
+
+                <TextView
+                    android:id="@+id/sat_score_takers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/medium_text_size"
+                    android:textStyle="bold"
+                    tools:text="SAT" />
+
+                <TextView
+                    android:id="@+id/sat_score_math"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/default_text_size"
+                    tools:text="Math" />
+
+                <TextView
+                    android:id="@+id/sat_score_reading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/default_text_size"
+                    tools:text="Reading" />
+
+                <TextView
+                    android:id="@+id/sat_score_writing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/default_text_size"
+                    tools:text="Writing" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/pb_score_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/sat_score_loading"
+                app:layout_constraintStart_toEndOf="@id/sat_score_loading"
+                app:layout_constraintTop_toTopOf="@id/sat_score_loading" />
 
             <TextView
-                android:id="@+id/tv_score_math"
+                android:id="@+id/sat_score_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loading_score"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/sat_score_school_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/default_text_size"
-                tools:text="Math" />
+                app:layout_constraintStart_toStartOf="@id/sat_scores"
+                app:layout_constraintTop_toBottomOf="@id/sat_scores" />
 
             <TextView
-                android:id="@+id/tv_score_reading"
+                android:id="@+id/sat_score_school_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/default_text_size"
-                tools:text="Reading" />
+                app:layout_constraintStart_toStartOf="@id/sat_score_school_email"
+                app:layout_constraintTop_toBottomOf="@id/sat_score_school_email" />
 
             <TextView
-                android:id="@+id/tv_score_writing"
+                android:id="@+id/sat_score_students"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/default_text_size"
-                tools:text="Writing" />
-        </LinearLayout>
+                app:layout_constraintStart_toStartOf="@id/sat_score_school_address"
+                app:layout_constraintTop_toBottomOf="@id/sat_score_school_address" />
 
-        <ProgressBar
-            android:id="@+id/pb_score_loading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/tv_score_loading_text"
-            app:layout_constraintStart_toEndOf="@id/tv_score_loading_text"
-            app:layout_constraintTop_toTopOf="@id/tv_score_loading_text" />
+            <TextView
+                android:id="@+id/school_overview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin"
+                android:textAlignment="center"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sat_score_students" />
 
-        <TextView
-            android:id="@+id/tv_score_loading_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loading_score"
-            android:textSize="@dimen/default_text_size"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_score_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/default_text_size"
-            app:layout_constraintStart_toStartOf="@id/ll_scores"
-            app:layout_constraintTop_toBottomOf="@id/ll_scores" />
-
-        <TextView
-            android:id="@+id/tv_score_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/default_text_size"
-            app:layout_constraintStart_toStartOf="@id/tv_score_email"
-            app:layout_constraintTop_toBottomOf="@id/tv_score_email" />
-
-        <TextView
-            android:id="@+id/tv_score_students"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/default_text_size"
-            app:layout_constraintStart_toStartOf="@id/tv_score_address"
-            app:layout_constraintTop_toBottomOf="@id/tv_score_address" />
-
-        <TextView
-            android:id="@+id/tv_score_overview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/default_text_size"
-            android:layout_margin="@dimen/default_margin"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_score_students" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 </ScrollView>

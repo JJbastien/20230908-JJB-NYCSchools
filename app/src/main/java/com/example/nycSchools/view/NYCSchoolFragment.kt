@@ -5,15 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.nycSchools.R
-import com.example.nycSchools.databinding.FragmentNycschoolListBinding
+import com.example.nycSchools.databinding.FragmentNycschoolBinding
 import com.example.nycSchools.model.NYCSchool
+import com.example.nycSchools.utils.SchoolAdapter
 import com.example.nycSchools.utils.UIState
 
 // Fragment to display the SAT scores
-class NYCSchoolListFragment : ViewModelFragment() {
+class NYCSchoolFragment : ViewModelFragment() {
 
-    private var _binding: FragmentNycschoolListBinding? = null
-    private val binding: FragmentNycschoolListBinding get() = _binding!!
+    private var _binding: FragmentNycschoolBinding? = null
+    private val binding: FragmentNycschoolBinding get() = _binding!!
 
     private lateinit var schoolAdapter: SchoolAdapter
 
@@ -22,7 +23,7 @@ class NYCSchoolListFragment : ViewModelFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentNycschoolListBinding.inflate(layoutInflater)
+        _binding = FragmentNycschoolBinding.inflate(layoutInflater)
 
         configureObserver()
         return binding.root
@@ -35,7 +36,7 @@ class NYCSchoolListFragment : ViewModelFragment() {
                 is UIState.Success<*> -> {
                     binding.apply {
                         pbLoading.visibility = View.GONE
-                        tvSchoolErrorLoadingText.visibility = View.GONE
+                        loadingError.visibility = View.GONE
                         schoolAdapter = SchoolAdapter(setSchool = ::setSchool)
                         schoolAdapter.setSchoolsList(state.response as List<NYCSchool>)
                         rvSchoolList.adapter = schoolAdapter
@@ -44,7 +45,7 @@ class NYCSchoolListFragment : ViewModelFragment() {
                 is UIState.Error -> {
                     binding.apply {
                         pbLoading.visibility = View.GONE
-                        tvSchoolErrorLoadingText.text = state.exception.message
+                        loadingError.text = state.exception.message
                     }
                 }
                 else -> {}

@@ -35,31 +35,31 @@ class NYCScoreFragment: ViewModelFragment() {
                     if (score == null) {
                         binding.apply {
                             pbScoreLoading.visibility = View.GONE
-                            tvScoreLoadingText.visibility = View.GONE
+                            satScoreLoading.visibility = View.GONE
                         }
                     } else {
                         binding.apply {
                             pbScoreLoading.visibility = View.GONE
-                            tvScoreLoadingText.visibility = View.GONE
-                            tvScoreTakers.text = resources.getString(R.string.score_takers, score.numOfSatTestTakers)
-                            tvScoreMath.text = resources.getString(R.string.score_math, score.satMathAvgScore)
-                            tvScoreReading.text = resources.getString(R.string.score_reading, score.satCriticalReadingAvgScore)
-                            tvScoreWriting.text = resources.getString(R.string.score_writing, score.satWritingAvgScore)
-                            llScores.visibility = View.VISIBLE
+                            satScoreLoading.visibility   = View.GONE
+                            satScoreTakers.text = resources.getString(R.string.score_takers, score.numOfSatTestTakers)
+                            satScoreMath.text = resources.getString(R.string.score_math, score.satMathAvgScore)
+                            satScoreReading.text = resources.getString(R.string.score_reading, score.satCriticalReadingAvgScore)
+                            satScoreWriting.text = resources.getString(R.string.score_writing, score.satWritingAvgScore)
+                            satScores.visibility = View.VISIBLE
                         }
                     }
                     binding.apply {
-                        tvScoreSchoolName.text = school?.schoolName
-                        tvScoreAddress.text = resources.getString(R.string.score_address, school?.primaryAddressLine1)
-                        tvScoreEmail.text = resources.getString(R.string.score_email, school?.schoolEmail)
-                        tvScoreStudents.text = resources.getString(R.string.score_students, school?.totalStudents)
-                        tvScoreOverview.text = resources.getString(R.string.score_overview,school?.overviewParagraph)
+                        satScoreSchoolName.text = school?.schoolName
+                        satScoreSchoolAddress.text = resources.getString(R.string.score_address, school?.primaryAddressLine1)
+                        satScoreSchoolEmail.text = resources.getString(R.string.score_email, school?.schoolEmail)
+                        satScoreStudents.text = resources.getString(R.string.score_students, school?.totalStudents)
+                        schoolOverview.text = resources.getString(R.string.score_overview,school?.overviewParagraph)
                     }
                 }
                 is UIState.Error -> {
                     binding.apply {
                         pbScoreLoading.visibility = View.GONE
-                        tvScoreLoadingText.text = state.exception.message
+                        satScoreLoading.text = state.exception.message
                     }
                 }
                 is UIState.Loading -> {

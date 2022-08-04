@@ -14,12 +14,12 @@
         android:id="@+id/pb_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/tv_school_error_loading_text"
-        app:layout_constraintBottom_toBottomOf="@id/tv_school_error_loading_text"
-        app:layout_constraintStart_toEndOf="@id/tv_school_error_loading_text"/>
+        app:layout_constraintTop_toTopOf="@id/loading_error"
+        app:layout_constraintBottom_toBottomOf="@id/loading_error"
+        app:layout_constraintStart_toEndOf="@id/loading_error"/>
 
     <TextView
-        android:id="@+id/tv_school_error_loading_text"
+        android:id="@+id/loading_error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/loading_schools"

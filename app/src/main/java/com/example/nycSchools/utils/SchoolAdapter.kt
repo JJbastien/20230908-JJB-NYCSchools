@@ -1,9 +1,9 @@
-package com.example.nycSchools.view
+package com.example.nycSchools.utils
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nycSchools.databinding.SchoolListItemBinding
+import com.example.nycSchools.databinding.SchoolItemBinding
 import com.example.nycSchools.model.NYCSchool
 
 //Adapter set up for Recycler view
@@ -12,7 +12,7 @@ class SchoolAdapter(
     private val setSchool: (NYCSchool) -> Unit
 ) : RecyclerView.Adapter<SchoolAdapter.SchoolViewHolder>() {
     inner class SchoolViewHolder(
-        private val binding: SchoolListItemBinding
+        private val binding: SchoolItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
             fun bind(nycSchool: NYCSchool) {
                 binding.apply {
@@ -34,7 +34,7 @@ class SchoolAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SchoolViewHolder =
         SchoolViewHolder(
-            SchoolListItemBinding.inflate(
+            SchoolItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
