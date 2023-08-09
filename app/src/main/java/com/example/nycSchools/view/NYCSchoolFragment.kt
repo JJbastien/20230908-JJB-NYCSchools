@@ -1,6 +1,7 @@
 package com.example.nycSchools.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,20 +11,22 @@ import com.example.nycSchools.model.NYCSchool
 import com.example.nycSchools.utils.SchoolAdapter
 import com.example.nycSchools.utils.UIState
 
-// Fragment to display the SAT scores
+// Fragment to display the  schools
 class NYCSchoolFragment : ViewModelFragment() {
+    private val binding by lazy{
+        FragmentNycschoolBinding.inflate(layoutInflater)
+    }
 
-    private var _binding: FragmentNycschoolBinding? = null
-    private val binding: FragmentNycschoolBinding get() = _binding!!
 
     private lateinit var schoolAdapter: SchoolAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentNycschoolBinding.inflate(layoutInflater)
+
 
         configureObserver()
         return binding.root
@@ -63,6 +66,6 @@ class NYCSchoolFragment : ViewModelFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+
     }
 }
